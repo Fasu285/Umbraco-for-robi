@@ -1,0 +1,130 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Core.Models.Blocks;
+@using UmbracoProject.Models;
+
+@model ImageSectionModel;
+
+
+@{
+    string mainImageUrl = "";
+	if (Model.MainImage.HasValue("mainImage"))
+    {
+		var mainImage = Model.MainImage.Value<IPublishedContent>("mainImage");
+        mainImageUrl = $"{mainImage}?width=209.99&height=200&mode=crop&anchor=Center";
+    }
+}
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sample Editable Home Page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	
+	<body>
+
+		<!-- Navigation -->
+		@await Html.PartialAsync("Navigation")
+		<!-- Jumbotron, w title -->
+		<div class="jumbotron text-center jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-1">@Model.Value("pageTitle")</h1>
+				<p>@Model.Value("pageSubTitle")</p>
+			</div>
+		</div>
+
+		<!-- This is where we're going to render our content -->
+		
+		<div class="container">
+
+			<div class="row section">
+				<div class="col-md-12">
+
+					@Model.Value("bodyText")
+					
+				</div>				
+			</div>
+
+		</div>
+
+		<!-- Grey Banner -->
+		<div class="container-fluid grey-bg">
+			<div class="container">
+			
+			@await Html.PartialAsync("QuoteForm")
+					
+			
+			</div>
+		</div>
+
+		<!-- Blog section -->
+		<div class="container">
+
+			<div class="row section">
+				<div class="col-md-12">
+					<h1>Latest from the blog</h1>
+				</div>
+
+				<!-- Blog Post query goes here. -->
+				<div class="col-md-4">
+					<div class="box-blog">
+					@if (Model.MainImage != null)
+					{
+						<img src="@Model.MainImage" alt="Main Image">
+					}
+					<a><div class="blog-promoImage" style="background-image:url('@Model.MainImage')"></div></a>
+						<h5>Product Update - Deploying Deploy 3.3</h5>
+						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
+						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
+							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
+					</div>
+					<a href="#" class="btn btn-inverted">Read more >></a>
+				</div>
+			
+			</div>
+
+		</div>
+
+		<!-- Call to Action -->
+		<div class="container-fluid orange-bg">
+			<div class="container">
+
+				<div class="row section">
+					<div class="col-md-12 text-center">
+						<h1>How to continue your Umbraco journey</h1>
+						<p>What’s next? We have gathered the 3 best ways for you to go on from here ensuring you get the best start to your Umbraco journey: <br/><br/></p>
+						<a href="#" class="btn btn-inverted-orange" role="button">3 ways to start your Umbraco Journey >></a>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="container-fluid footer">
+			<div class="container">
+
+				@Model.Value("footerText1")
+					<div class="text-center">
+						<img src="/images/arm_with_u_logo.png" class="img-fluid" alt="Arm with Umbraco Logo">
+					</div>
+				
+
+			</div>
+		</div>
+	
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+	</body>
+</html>

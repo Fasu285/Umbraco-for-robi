@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- Main container -->
+
+        <div class="container">
+			<div class="row section">
+
+				<!-- The Contact form -->
+				@await Html.PartialAsync("QuoteForm")
+
+				<!-- Contact details -->
+				<div class="col-md-6">
+					@Model.Value("bodyText")
+				</div>
+			</div>
+		
+		</div>

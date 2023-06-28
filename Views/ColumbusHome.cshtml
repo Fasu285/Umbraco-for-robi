@@ -1,0 +1,72 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ColumbusHome>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+
+@{
+    string BaseUrl = "https://localhost:44327/";
+    
+}
+
+<!DOCTYPE html PUBLIC>
+<html>
+	<head>
+		<title>Welcome - Umbraco Sample Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+
+<body>
+    @await Html.PartialAsync("Navigation")
+    
+	<div>
+		<div id="tooplate_main">
+			
+		
+				
+			
+			<div id="about" class="main_box">
+				<div class="container">
+				<h1 class="display-1">@Model.Value("title", fallback: Fallback.ToAncestors)</h1>
+				<p>@Model.Value("subTitle", fallback: Fallback.ToAncestors)</p>
+			</div>
+			  <img src="@Model.Value("image")" alt="image" class="img_float_r img_frame" />
+				@Model.Value("mainContent")
+				<h3>Management</h3>
+					<blockquote>
+						<p>Fusce nec felis id lacus sollicitudin vulputate. Proin tincidunt, arcu id pellentesque accumsan, neque dolor imperdiet ligula, quis viverra tellus nulla a odio. Curabitur vitae risus turpis. </p>
+						<cite>Linda - <span>Web Team Manager</span></cite>
+					</blockquote>
+					<blockquote>
+						<p>Sed interdum quam id neque convallis ac convallis tortor scelerisque. Etiam viverra dictum urna, vitae consectetur justo egestas vel. Ut vulputate eros, vehicula aliquet enim cursus vitae. </p>
+						<cite>Candy - <span>Marketing Officer</span></cite> 
+					</blockquote>
+				</div>
+				<div class="col_12 float_r">
+					<h3>Services</h3>
+					<ul class="tooplate_list">
+						<li>Nulla facilisi. Maecenas ac odio ipsum donec cursus ames ac turpis egesta</li>
+						<li>Fusce risus tortor, interdum in malesuada pulvinar rutrum nec molestie</li>
+						<li>Proin facilisis ullamcorper turpis, in placerat  sed, varius a nequ</li>
+						<li>Sed vel justo quis ligula blandit commodo molestie  sed, varius a nequ</li>
+						<li>Ut tristique sagittis arcu, vel laoreet turpis eu bibendum libero egestas</li>
+					</ul>
+				</div>
+				<div class="cleaner"></div>
+					<a href="#tooplate_main" class="gototop">Go To Top</a>
+				<div class="cleaner"></div>
+			</div> 
+			
+			
+		</div>
+		
+		<div class="cleaner"></div>
+	</div>
+
+</body>
+</html>

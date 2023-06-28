@@ -1,0 +1,62 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+        Layout = null;
+}
+
+<!-- Main container -->
+<form method="post" action="@Url.Action("SubmitQuoteForm", "QuoteForm")">
+	<h2>This is quote form as a “Partial view”</h2>
+        <div class="container">
+			<div class="row section">
+
+				<!-- The Contact form -->
+				<div class="col-md-6">
+					<div class="contact-form">
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Phone</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Company</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Project Details</label>
+							<textarea class="form-control" rows="7"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Budget</label>
+							<input type="text" class="form-control">
+						</div>
+							<div class="form-group">
+							<label>Dead Line</label>
+							<input type="text" class="form-control">
+						</div>
+						
+						
+						<div class="form-group">
+							<label>Message</label>
+							<textarea class="form-control" rows="7"></textarea>
+						</div>
+						<input type="submit" class="btn btn-primary" value="Submit Button">
+					</div>
+				</div>
+
+				<!-- Contact details -->
+				<div class="col-md-6">
+				
+				</div>
+			</div>
+		</div>
+		</form>
